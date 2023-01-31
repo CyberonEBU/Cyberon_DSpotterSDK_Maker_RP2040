@@ -1,0 +1,56 @@
+#######################################
+# Syntax Coloring Map For DSpotterSDK & DSpotterSDKHL
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DSpotterSDK	KEYWORD1
+DSpotterSDKHL	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+GetMemoryUsage	KEYWORD2
+GetVerInfo	KEYWORD2
+GetSerialNumber	KEYWORD2
+Init	KEYWORD2
+Release	KEYWORD2
+Start	KEYWORD2
+Stop	KEYWORD2
+SetAGC	KEYWORD2
+SetCommandStageProperty	KEYWORD2
+PutRecordData	KEYWORD2
+GetRecordLostCount	KEYWORD2
+DoRecognition	KEYWORD2
+GetRecogResult	KEYWORD2
+GetCommandCount	KEYWORD2
+GetCommand	KEYWORD2
+ShowDebugInfo	KEYWORD2
+DoVR	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+Success	LITERAL1
+NotInit	LITERAL1
+IllegalParam	LITERAL1
+LeaveNoMemory	LITERAL1
+AudioFailed	LITERAL1
+LoadModelFailed	LITERAL1
+Stopped	LITERAL1
+LicenseFailed	LITERAL1
+InitStage	LITERAL1
+TriggerStage	LITERAL1
+CommandStage	LITERAL1
+InitSuccess	LITERAL1
+GetResult	LITERAL1
+ChangeStage	LITERAL1
+GetError	LITERAL1
+LostRecordFrame	LITERAL1
+NeedMoreSample	LITERAL1
+TrialLimitStage	LITERAL1
+DeviceModelNotPair	LITERAL1

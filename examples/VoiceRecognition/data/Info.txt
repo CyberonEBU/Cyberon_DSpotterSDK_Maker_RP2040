@@ -1,0 +1,15 @@
+License: Free Demo
+Language: English(Worldwide)
+
+Trigger:
+	100	Hey Arduino
+	101	Hey Cyberon
+
+Command:
+	10000	Open camera
+	10001	Take a picture
+	10002	Play music
+	10003	Stop music
+	10004	Previous song
+	10005	Next song
+

@@ -1,0 +1,13 @@
+License: Free Demo
+Language: English(Worldwide)
+
+Trigger:
+	100	Hey Arduino
+
+Command:
+	100	Hey Arduino
+	10000	LED green
+	10001	LED red
+	10002	LED blue
+	10003	LED off
+
