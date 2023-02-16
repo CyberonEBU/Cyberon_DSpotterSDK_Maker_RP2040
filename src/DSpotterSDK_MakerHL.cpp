@@ -123,18 +123,12 @@ int DSpotterSDKHL::Init(const uint32_t *lpdwLicense, int nLicenseSize, const uin
 #if defined(SERIAL_PRINT)
         if (m_bShowDebugInfo && Serial)
         {
-#if defined(TARGET_ARDUINO_NANO33BLE)
+#if defined(TARGET_PORTENTA_H7) || defined(TARGET_NANO_RP2040_CONNECT) || defined(TARGET_ARDUINO_NANO33BLE)
             Serial.print("DSpotter license failed! The serial number of your device is ");
             Serial.println(DSpotterSDK::GetSerialNumber());
-            Serial.println("Please go to https://tool.cyberon.com.tw/GetLicense/GetLicensePage_33ble.php to get license data with the serial number.");
-#elif defined(TARGET_PORTENTA_H7)
-            Serial.print("DSpotter license failed! The serial number of your device is ");
-            Serial.println(DSpotterSDK::GetSerialNumber());
-            Serial.println("Please go to https://tool.cyberon.com.tw/GetLicense/GetLicensePage_portenta-h7.php to get license data with the serial number.");
-#elif defined(TARGET_NANO_RP2040_CONNECT)
-            Serial.print("DSpotter license failed! The serial number of your device is ");
-            Serial.println(DSpotterSDK::GetSerialNumber());
-            Serial.println("Please go to https://tool.cyberon.com.tw/GetLicense/GetLicensePage_rp2040.php to get license data with the serial number.");
+            Serial.println("Please go to https://tool.cyberon.com.tw/ArduinoDSpotterAuth/FDMain.php to get license data with the serial number.");
+#else
+            Serial.println("Device not support!");
 #endif
         }
 #endif

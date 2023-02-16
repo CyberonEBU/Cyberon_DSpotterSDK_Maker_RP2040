@@ -9,7 +9,7 @@
   * DNN-based model that provides high accuracy and noise-robustness.
   * No need to collect speech data for training. Custom command set can be easily created through text input.
   * Offline keyword spotting with low power consumption.
-  * More than 26 languages supported.
+  * More than 40 languages supported.
 
 ## Supported Arduino Boards
 
@@ -50,15 +50,17 @@ There are three ways to install Cyberon_DSpotterSDK_Maker library:
 
 ### Get the Free Demo License of the DeviceID
 
-1. Go to the [GetLicense Page](https://tool.cyberon.com.tw/GetLicense/GetLicensePage.php).
+1. Go to the [DSpotter Free Demo License Page](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/FDMain.php).
 
 2. Enter the board's serial number and click Submit. The `Free Demo License` data of the board will show on the webpage.
 
 ### Integrating the Free Demo License to the Board
 
-1. `Copy & Paste` the `Free Demo License` data into the `CybLicense.h` file under the example sketch folder.
-2. `Verify & Upload` the example sketch to the board.
-3. The voice recognition is ready to go.
+1. Open the library example sketch from the Arduino IDE, this will open the example sketch in read-only mode.
+2. `Copy & Paste` the `Free Demo License` data into the `CybLicense.h` tab in the Arduino IDE.
+3. Save the changes, since the example sketch is in read-only mode, the Arduino IDE will prompt you to save the sketch in another location.
+4. `Verify & Upload` the sketch to the board.
+5. The speech recognition is ready to go.
 
 ### Customizing a Keyword Model
 Users can create their own custom keyword sets through the DSpotter Model Configuration Page:
@@ -81,7 +83,7 @@ and obtain the `Custom Trial Model` & the corresponding `Custom Trial License` t
    * DSpotter Project File &ensp;&ensp;&ensp;&ensp;&ensp; ***Model_xxxxxxxxx_Arduino_[board type].dsproj***
 
     ***xxxxxxxxx** is a random tamp number use to differ each download. 
-10. `Copy & Paste` ***Model_xxxxxxxxx.h*** and ***CybLicense_xxxxxxxxx.h*** to the sketch folder.
+10. `Copy & Paste` ***Model_xxxxxxxxx.h*** and ***CybLicense_xxxxxxxxx.h*** to your sketch folder.
 11. Modify the following lines in the sketch:
 
     ```diff
@@ -92,7 +94,7 @@ and obtain the `Custom Trial Model` & the corresponding `Custom Trial License` t
     ```
 
 12. `Verify & Upload` the sketch to the board.
-13. The voice recognition with your custom keyword set is ready to go.
+13. The speech recognition with your custom keyword set is ready to go.
 
 Please note that the `Custom Trial Model` and the `Custom Trial License` are free to use with some **limitations**:
 
@@ -107,8 +109,8 @@ Users can remove the **limitations** of the Custom Trial Version by upgrading to
 To obtain the `Custom Formal Model` & the corresponding `Custom Formal License` for the final product:
 
 1. Purchase a valid `voucher code` from Arduino Online Store:
-   * https://store-usa.arduino.cc/
-2. Go to the [DSpotter Model License Page](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CFMain.php).
+   * https://store.arduino.cc/speech-recognition-engine
+2. Go to the [DSpotter License Activation Page](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CFMain.php).
 3. Select the `board type` of your board, then enter your `email address`, the `board's serial number`, and the `voucher code` you just purchased.
 4. Import the `.dsproj file` you received with your tested `Custom Trial Model`.
 5. Read & agree to the end-user license agreement, then click `Next`.
@@ -118,18 +120,19 @@ To obtain the `Custom Formal Model` & the corresponding `Custom Formal License` 
     * Custom Formal License &ensp;&ensp;&ensp;&ensp;&ensp; ***CybLicense_xxxxxxxxx.h***
 
     xxxxxxxxx is a random tamp number use to differ each download.
-8.  `Copy & Paste` ***Model_xxxxxxxxx.h*** and ***CybLicense_xxxxxxxxx.h*** to the sketch folder.
-9. Modify the following lines in the sketch:
+8. Please keep these data properly.
+9.  `Copy & Paste` ***Model_xxxxxxxxx.h*** and ***CybLicense_xxxxxxxxx.h*** to your sketch folder.
+10. Modify the following lines in the sketch:
     ```diff
     - #include "CybLicense.h" 
     + #include "CybLicense_xxxxxxxxxxx.h"
     - #include "Model_L1.h"
     + #include "Model_xxxxxxxxxxx.h"
     ```
-10. `Verify & Upload` the sketch to the board.
-11. The voice recognition for the custom keyword set is ready and without any limitation.
+11. `Verify & Upload` the sketch to the board.
+12. The speech recognition for the custom keyword set is ready and without any limitation.
 
 
 ## Last Modified
 
-* Dec. 2, 2022 by Cyberon Corporation \<info@cyberon.com.tw\>
+* Feb. 16, 2023 by Cyberon Corporation \<info@cyberon.com.tw\>

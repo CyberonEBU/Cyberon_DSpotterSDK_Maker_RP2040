@@ -12,18 +12,18 @@
 
     To run the free demo with a pre-defined keyword set:
         1. Verify & upload the GetSerialNumber.ino sketch to get the board's serial number and print it on the console output.
-        2. Go to the GetLicense page:
-            https://tool.cyberon.com.tw/GetLicense/GetLicensePage.php
+        2. Go to the DSpotter Free Demo License Page:
+            https://tool.cyberon.com.tw/ArduinoDSpotterAuth/FDMain.php
         3. Enter the board's serial number and click Submit. The license data of the board will show on the webpage.
-        4. Copy & paste the license data into the CybLicense.h file under the sketch folder.
+        4. Copy & paste the license data into the CybLicense.h file under your sketch folder.
         5. Verify & upload the sketch to the board.
         6. The voice recognition is ready to go.
 
     To try out a custom keyword set:
-        Users can create their own custom keyword sets through the DSpotter Model Configuration page:
+        Users can create their own custom keyword sets through the DSpotter Model Configuration Page:
             https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CTMain.php
         and obtain the Custom Trial Model & the corresponding Custom Trial License to test on the board.
-            1. Go to the DSpotter Custom Trial Model Configuration page.
+            1. Go to the DSpotter Model Configuration Page.
             2. Select the board type of your board, enter your email address and enter the board's serial number.
             3. Read & agree to the end-user license agreement, then click Next.
             4. You can choose to create a new model set or import model from an existing .dsproj file.
@@ -38,7 +38,7 @@
                     Custom Trial License   CybLicense_xxxxxxxxxxx.h
                     DSpotter Project File  Model_xxxxxxxxx_Arduino_[board type].dsproj
                xxxxxxxxxxx is a random tamp number use to differ each download.
-               Copy & paste Model_xxxxxxxxxxx.h and CybLicense_xxxxxxxxxxx.h to the sketch folder.
+               Copy & paste Model_xxxxxxxxxxx.h and CybLicense_xxxxxxxxxxx.h to your sketch folder.
             10. Modify the following lines in the sketch:
                     #include "CybLicense.h" ----> #include "CybLicense_xxxxxxxxxxx.h"
                     #include "Model_L1.h" ----> #include "Model_xxxxxxxxxxx.h"
@@ -50,12 +50,12 @@
 
     To unlock the limitations of the Custom Trial version:
         Users can remove the limitations of the Custom Trial version by upgrading to the Custom Formal version
-        through the DSpotter Model License page:
+        through the DSpotter License Activation Page:
             https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CFMain.php
         to obtain the Custom Formal Model & the corresponding Custom Formal License for the final product.
             1. Purchase a valid voucher code from Arduino Online Store:
-                    https://store-usa.arduino.cc/
-            2. Go to the DSpotter License page.
+                    https://store.arduino.cc/speech-recognition-engine
+            2. Go to the DSpotter License Activation Page.
             3. Select the board type of your board, then enter your email address, the board's serial number, and the voucher code you just purchased.
             4. Import the .dsproj file you received with your tested Custom Trial Model.
             5. Read & agree to the end-user license agreement, then click Next.
@@ -65,14 +65,15 @@
                     Custom Formal Model     Model_xxxxxxxxxxx.h
                     Custom Formal License   CybLicense_xxxxxxxxxxx.h
                xxxxxxxxxxx is a random tamp number use to differ each download.
-               Copy & paste Model_xxxxxxxxxxx.h and CybLicense_xxxxxxxxxxx.h to the sketch folder.
+               Please keep these data properly.
+               Copy & paste Model_xxxxxxxxxxx.h and CybLicense_xxxxxxxxxxx.h to your sketch folder.
             8. Modify the following lines in the sketch:
                     #include "CybLicense.h" ----> #include "CybLicense_xxxxxxxxxxx.h"
                     #include "Model_L1.h" ----> #include "Model_xxxxxxxxxxx.h"
             9. Verify & upload the sketch to the board.
             10.The voice recognition for the custom keyword set is ready and without any limitation.
 
-    18 NOV 2022 by Cyberon Corporation.
+    16 Feb 2023 by Cyberon Corporation.
     https://www.cyberon.com.tw/index.php?lang=en
 */
 #include <Arduino.h>
@@ -84,7 +85,7 @@
 #define DSPOTTER_LICENSE g_lpdwLicense
 
 // The DSpotter Keyword Model Data.
-#if defined(TARGET_ARDUINO_NANO33BLE) || defined(TARGET_PORTENTA_H7)
+#if defined(TARGET_ARDUINO_NANO33BLE) || defined(TARGET_PORTENTA_H7) || defined(TARGET_NICLA_VISION)
 // For ARDUINO_NANO33BLE and PORTENTA_H7
 #include "Model_L1.h"             // The packed level one model file.
 // For NANO_RP2040_CONNECT
