@@ -4,6 +4,15 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#if defined(TARGET_ARDUINO_NANO33BLE) || defined(TARGET_PORTENTA_H7)
+// For ARDUINO_NANO33BLE and PORTENTA_H7
+#include <pins_arduino.h>
+#elif defined(TARGET_NANO_RP2040_CONNECT)
+// For NANO_RP2040_CONNECT
+#include <ArduinoECCX08.h>
+#include <WiFiNINA.h>
+#endif
+
 class DSpotterSDK
 {
 public:
