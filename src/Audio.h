@@ -5,7 +5,7 @@
 #else
 #define CHANNEL 1 // Number of record channel
 #endif
-#define SAMPLE_RATE 16000 // Record frequency
+#define SAMPLE_RATE 20000 // Record frequency
 
 typedef void (*AudioCallBack)(void* pVoid, short *pPcm, int nPcmSize);
 

@@ -174,7 +174,10 @@ int DSpotterSDKHL::Init(const uint32_t *lpdwLicense, int nLicenseSize, const uin
     p->m_oDSpotterSDK.SetAGC(true, VOLUME_SCALE_RECONG);
 #endif
 
-    // Set command stage timeout
+    // Set current PDM sample rate
+	p->m_oDSpotterSDK.SetSampleRate(SAMPLE_RATE);
+	
+	// Set command stage timeout
     p->m_oDSpotterSDK.SetCommandStageProperty(COMMAND_STAGE_TIMEOUT, COMMAND_STAGE_REPEAT == 1);
 
     // VR start

@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 #define DSPOTTER_MEM_SIZE 80000 // Please modify this number by the return value of DSpotterSDK::GetMemoryUsage().
-#define RECORD_BUF_CACHE_TIME 90 // The cahce length of recording data in ms.
+#define RECORD_BUF_CACHE_TIME 120//90 // The cahce length of recording data in ms.
 #define VOLUME_SCALE_RECONG 100 // The AGC volume scale percentage for recognition. It depends on the original data volume. 100~1600.
 #define COMMAND_STAGE_TIMEOUT 6000 // The maximum recording time in ms when there is no result at command stage.
 #define COMMAND_STAGE_REPEAT 1 // When set to 1, the recognizer will repeat recognition in the command stage until it times out.

@@ -34,22 +34,22 @@ public:
 	DSpotterSDK();
 	virtual ~DSpotterSDK();
 
-	/* Get the version information of DSpotter.
-	 * Return the version string. */
-	static const char* GetVerInfo();
-
-	/* Get the seurail number of Arduino device.
-	 * Return the serial number string. */
-	static const char* GetSerialNumber();
-
 	/* Get the memory usage of DSpotter.
 	 *   lpdwModel(in): The voice model.
 	 *   nRecordCacheTimeMS(in): The cache length of record data, unit is millisecond.
 	 *                           It must be greater than or equal to 60.
 	 * Return the memory usage. */
 	static int GetMemoryUsage(const uint32_t *lpdwModel, int nRecordCacheTimeMS);
+	
+	/* Get the version information of DSpotter.
+	 * Return the version string. */
+	static const char* GetVerInfo();
 
-	/* Initialize DSpotterSDK Maker.
+	/* Get the seurail nmber of Arduino device.
+	 * Return the serial nmber string. */
+	static const char* GetSerialNumber();
+
+	/* Initialize DSpotter.
 	 *   lpdwLicense(in): The license data.
 	 *   nLicenseSize(in): The size of the license data.
 	 *   lpdwModel(in): The voice model.
@@ -68,11 +68,22 @@ public:
 	 * Return Success or negative value for error. */
 	int Release();
 
+	/* Start the process of recognition. Please call Start() before starting the recording device.
+	 * Return Success or negative value for error. */
+	int Start();
+
+	/* Stop the process of recognition. PutRecordData() and DoRecognition() will do nothing 
+	 * after calling Stop().
+	 * Return Success or negative value for error. */
+	int Stop();
+
 	/* Set the option of auto gain control(AGC).
 	 *   bEnableAGC(in): To enable or disable AGC.
 	 *   nScalePercentage(in): The scale percentage of gain is 100 ~ 1600. The default value is 100.
 	 * Return Success or negative value for error. */
 	int SetAGC(bool bEnableAGC = false, int nScalePercentage = 100);
+	
+	int SetSampleRate(int nSampleRate = 16000);
 
 	/* Set the flow property at command stage.
 	 *   nTimeout(in): The maximum recording time in ms when there is no result at command stage.
@@ -83,15 +94,6 @@ public:
 	 *                 timeout. The default value is false.
 	 * Return Success or negative value for error. */
 	int SetCommandStageProperty(int nTimeout = 6000, bool bCommandStageRepeatUntilTimeout = false);
-
-	/* Start the process of recognition. Please call Start() before starting the recording device.
-	 * Return Success or negative value for error. */
-	int Start();
-
-	/* Stop the process of recognition. PutRecordData() and DoRecognition() will do nothing 
-	 * after calling Stop().
-	 * Return Success or negative value for error. */
-	int Stop();
 
 	/* Put the record data to the cached record buffer.
 	 *   lpsSample(in): The record data buffer.
@@ -162,6 +164,7 @@ protected:
 	bool m_bStart;
 	int m_nModelType;
 	int m_nTVD;
+	int m_nSampleRate;
 
 	int InitRecognition(int nGroupIndex);
 	void ReleaseRecognition();
